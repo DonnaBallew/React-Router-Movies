@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MovieList = (props) => {
+  console.log("props", props);
   return (
     <div className="movie-list">
       {props.movies.map((movie) => (
