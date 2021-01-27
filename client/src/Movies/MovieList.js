@@ -1,14 +1,18 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const MovieList = props => {
+const MovieList = (props) => {
+  console.log("props", props);
   return (
     <div className="movie-list">
-      {props.movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+      {props.movies.map((movie) => (
+        <Link to={`/movies/${movie.id}`}>
+          <MovieDetails key={movie.id} movie={movie} />
+        </Link>
       ))}
     </div>
   );
-}
+};
 
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
@@ -23,7 +27,7 @@ function MovieDetails({ movie }) {
       </div>
       <h3>Actors</h3>
 
-      {stars.map(star => (
+      {stars.map((star) => (
         <div key={star} className="movie-star">
           {star}
         </div>
